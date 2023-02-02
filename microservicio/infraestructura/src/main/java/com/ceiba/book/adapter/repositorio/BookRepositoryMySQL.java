@@ -15,6 +15,8 @@ public class BookRepositoryMySQL implements BookRepository {
 
     @SqlStatement(namespace = "books", value = "create")
     private static String sqlCreate;
+    @SqlStatement(namespace = "books", value = "update-all-data")
+    private static String sqlUpdateAllData;
 
 
     public BookRepositoryMySQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -29,5 +31,12 @@ public class BookRepositoryMySQL implements BookRepository {
         paramSource.addValue("title", book.getTitle());
 
         return this.customNamedParameterJdbcTemplate.crear(paramSource, sqlCreate);
+    }
+
+    @Override
+    public Long update(Book book) {
+        this.customNamedParameterJdbcTemplate.actualizar(book, sqlUpdateAllData);
+
+        return book.getId();
     }
 }

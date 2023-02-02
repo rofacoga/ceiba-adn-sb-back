@@ -6,11 +6,11 @@ import com.ceiba.book.port.repository.BookRepository;
 public class CreateBookService {
     private final BookRepository bookRepository;
 
-    public CreateBookService(BookRepository repositorioFactura) {
-        this.bookRepository = repositorioFactura;
+    public CreateBookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     public Long execute(Book book) {
-        return bookRepository.save(book);
+        return this.bookRepository.save(book);
     }
 }

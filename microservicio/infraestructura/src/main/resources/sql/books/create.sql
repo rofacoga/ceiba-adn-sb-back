@@ -1,0 +1,1 @@
+insert into books( id, title, author ) values ( :id, :title, :author )

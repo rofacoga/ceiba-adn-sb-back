@@ -1,5 +1,7 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.book.port.repository.BookRepository;
+import com.ceiba.book.service.CreateBookService;
 import com.ceiba.factura.puerto.repositorio.RepositorioFactura;
 import com.ceiba.factura.servicio.ServicioAnular;
 import com.ceiba.factura.servicio.ServicioFacturar;
@@ -18,6 +20,11 @@ public class BeanServicio {
     @Bean
     public ServicioAnular servicioAnular(RepositorioFactura repositorioFactura) {
         return new ServicioAnular(repositorioFactura);
+    }
+
+    @Bean
+    public CreateBookService createBookService(BookRepository bookRepository) {
+        return new CreateBookService(bookRepository);
     }
 
 

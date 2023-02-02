@@ -1,3 +1,18 @@
+create table books (
+ id int(11) not null auto_increment,
+ title varchar(100) not null,
+ author varchar(100) not null,
+ primary key (id)
+);
+
+create table ratings (
+ id int(11) not null auto_increment,
+ id_book int(11) not null,
+ stars int(2) not null,
+ primary key (id)
+);
+
+
 create table cliente (
  id int(11) not null auto_increment,
  nombre varchar(100) not null,

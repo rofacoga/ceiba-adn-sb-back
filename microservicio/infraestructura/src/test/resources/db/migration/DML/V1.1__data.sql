@@ -1,3 +1,8 @@
+insert into books( id, title, author ) values( 1, 'Cien años de soledad', 'Gabriel Garcia Marquez' );
+insert into books( id, title, author ) values( 2, 'Nerudianas', 'Pablo Neruda' );
+insert into books( id, title, author ) values( 3, '20000 leguas de viaje submarino', 'Julio Verne' );
+
+
 insert into cliente(id, nombre, tipo_cliente) values(1,'Cliente 1','PREFERENCIAL');
 insert into cliente(id, nombre, tipo_cliente) values(2,'Cliente 2','COMUN');
 insert into producto(id, nombre, aplica_iva, valor) values(1,'Producto 1',1, 25000);

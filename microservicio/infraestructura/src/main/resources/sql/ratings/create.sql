@@ -1,0 +1,1 @@
+insert into ratings( id_book, stars ) values ( :bookId, :stars )

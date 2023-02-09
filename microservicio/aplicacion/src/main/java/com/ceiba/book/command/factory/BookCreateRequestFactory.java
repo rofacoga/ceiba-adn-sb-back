@@ -2,7 +2,6 @@ package com.ceiba.book.command.factory;
 
 import com.ceiba.book.command.BookCommand;
 import com.ceiba.book.model.entity.Book;
-import com.ceiba.book.model.entity.BookCreateRequest;
 import org.springframework.stereotype.Component;
 
 @Component

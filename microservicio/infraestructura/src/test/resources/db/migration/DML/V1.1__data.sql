@@ -2,6 +2,11 @@ insert into books( id, title, author ) values( 1, 'Cien años de soledad', 'Gabr
 insert into books( id, title, author ) values( 2, 'Nerudianas', 'Pablo Neruda' );
 insert into books( id, title, author ) values( 3, '20000 leguas de viaje submarino', 'Julio Verne' );
 
+insert into ratings( id, id_book, stars ) values ( 1, 1, 5 );
+insert into ratings( id, id_book, stars ) values ( 2, 1, 4 );
+insert into ratings( id, id_book, stars ) values ( 3, 2, 3 );
+insert into ratings( id, id_book, stars ) values ( 4, 3, 5 );
+
 
 insert into cliente(id, nombre, tipo_cliente) values(1,'Cliente 1','PREFERENCIAL');
 insert into cliente(id, nombre, tipo_cliente) values(2,'Cliente 2','COMUN');

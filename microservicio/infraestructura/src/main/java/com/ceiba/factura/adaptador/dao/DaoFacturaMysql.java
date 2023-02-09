@@ -17,7 +17,8 @@ public class DaoFacturaMysql implements DaoFactura {
     @SqlStatement(namespace = "factura", value = "obteneranuladas")
     private static String sqlObtenerAnuladas;
 
-    public DaoFacturaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate, MapeoFacturaResumen mapeoFacturaResumen) {
+    public DaoFacturaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate,
+                           MapeoFacturaResumen mapeoFacturaResumen) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
         this.mapeoFacturaResumen = mapeoFacturaResumen;
     }

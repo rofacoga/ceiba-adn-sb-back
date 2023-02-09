@@ -53,8 +53,8 @@ class CommandControllerBookTest {
     }
 
     @Test
-    void updateBookWithId3() throws Exception {
-        final Long id = 3L;
+    void updateBookWithId2() throws Exception {
+        final Long id = 2L;
         final String title = "Clean Architecture";
         final String author = "Robert C. Martin";
         AllBookDataCommand bookCommand = new AllBookDataCommand(id, title, author);
@@ -63,7 +63,7 @@ class CommandControllerBookTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookCommand)))
                 .andExpect(status().is2xxSuccessful())
-                .andExpect(jsonPath(JSON_RESULT_ID, is(3)))
+                .andExpect(jsonPath(JSON_RESULT_ID, is(id.intValue())))
                 .andExpect(jsonPath(JSON_RESULT_TITLE, is(title)))
                 .andExpect(jsonPath(JSON_RESULT_AUTHOR, is(author)));
 

@@ -1,4 +1,4 @@
-rootProject.name = 'adn-scotiabank'
+rootProject.name = 'adn-scotiabank-book-service'
 
 include ':infraestructura'
 include ':aplicacion'

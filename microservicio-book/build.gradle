@@ -9,9 +9,9 @@ buildscript {
 }
 
 plugins {
+	id 'java'
 	id 'org.springframework.boot' version  "${springBootVersion}"
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
 	id 'info.solidsoft.pitest' version '1.7.4'
 	id 'com.github.jk1.dependency-license-report' version '2.0'
 }
@@ -38,9 +38,15 @@ allprojects {
 	
 	project.ext.springboottest = ["org.springframework.boot:spring-boot-starter-test:${springBootVersion}"]
 	project.ext.springbootweb = ["org.springframework.boot:spring-boot-starter-web:${springBootVersion}"]
+	project.ext.springbootredis = ["org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"]
 	project.ext.springdevtools = ["org.springframework.boot:spring-boot-devtools:${springBootVersion}"]
 	project.ext.springbootundertow = ["org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"]
 	project.ext.springbootjasypt = ['com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1']
+
+	project.ext.springcloudeureka = ["org.springframework.cloud:spring-cloud-starter-eureka:${springCloudVersion}"]
+	project.ext.springcloudconfig = ["org.springframework.cloud:spring-cloud-starter-config:${springCloudConfigVersion}"]
+	project.ext.springcloudnetflixeureka = ["org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${springCloudVersion}"]
+
 
 	// Se excluye JUnit 4
 	configurations {
@@ -74,15 +80,28 @@ repositories {
 }
 
 dependencies {
-
 	configurations {
     	runtime.exclude module: 'spring-boot-starter-tomcat'
     	compile.exclude module: 'spring-boot-starter-tomcat'
 	}
 
-	implementation project.ext.springbootweb
+//	implementation 'org.springframework.cloud:spring-cloud-starter-config:1.4.7.RELEASE'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-eureka:1.4.7.RELEASE'
+
+//	implementation 'com.sun.jersey.contribs:jersey-apache-client4:1.19.4'
+//	implementation project.ext.springcloudnetflixeureka
+//	implementation project.ext.springbootredis
+//	implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server"
+
+//	implementation "org.springframework.cloud:spring-cloud-starter-config:${springCloudConfigVersion}"
+//	implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${springCloudVersion}"
+
+	implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${springCloudVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+
 	runtimeOnly project.ext.springdevtools
-	
+//	implementation project.ext.springbootweb
+
 	implementation project.ext.springbootundertow
 	implementation project.ext.flyway
 
@@ -90,6 +109,5 @@ dependencies {
 }
 
 bootJar {
-
 
 }

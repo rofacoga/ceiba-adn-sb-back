@@ -32,6 +32,7 @@ dependencies {
 	testImplementation project.ext.springboottest
 	implementation project.ext.springbootweb
 	implementation project.ext.springdoc
+	implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
 
 	implementation project.ext.apachecommons
 	implementation project.ext.springbootjdbc

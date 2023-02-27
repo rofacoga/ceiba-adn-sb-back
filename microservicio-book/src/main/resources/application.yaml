@@ -1,0 +1,59 @@
+jasypt:
+   encryptor:
+      password: ${jasyptpwd:secretkey}
+      algorithm: PBEWithMD5AndDES
+
+server:
+   port: 8080
+   servlet:
+      context-path: /book-service/
+      session:
+         timeout: 21600s
+springdoc:
+   swagger-ui:
+      path: /swagger-ui.html
+
+eureka:
+   client:
+      registerWithEureka: false
+      fetchRegistry: false
+      healthcheck:
+         enable: true
+      region: default
+#      registryFetchIntervalSeconds: 5
+#      serviceUrl:
+#         defaultZone: http://discUser:discPassword@localhost:8082/eureka/
+
+security:
+   user:
+      name: configUser
+      password: configPassword
+      role: SYSTEM
+
+
+spring:
+   cloud:
+      config:
+         name: book-service
+         username: configUser
+         password: configPassword
+         discovery:
+            service-id: config
+            enabled: true
+         server:
+            git:
+               uri: file:///${user.home}/application-config
+   jpa:
+      hibernate:
+         ddl-auto: create
+   h2:
+      console: true
+      path: /h2-console
+   datasource:
+      driver-class-name: org.h2.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbcUrl: jdbc:h2:mem:librarydb
+      username: sa
+      password:
+      hikari:
+         poolName: pool
